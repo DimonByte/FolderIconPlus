@@ -1,0 +1,5 @@
+@echo off
+dotnet publish FolderIconPlus.csproj -c Release -r win-x64 --self-contained true ^
+  -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true ^
+  -p:EnableCompressionInSingleFile=true -p:DebugType=none -o publish || goto :eof
+makensis installer.nsi
